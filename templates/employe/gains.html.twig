@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gains{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styleHome.css') }}">
+{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/employe">TeaTipTop</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav me-auto">
+       
+      
+            
+      </ul>
+      <form class="d-flex">
+        <li class="nav-item d-flex">
+                <a class="nav-link" style="color:white;" href="/logout">Déconnection</a>
+            </li>
+      </form>
+    </div>
+  </div>  
+</nav>
+
+<div class="app d-flex mt-5 flex-row align-items-center">
+    <div class="container">
+
+
+    {% for message in app.session.flashbag.get('Success') %}
+<div class="alert alert-dismissible alert-primary col-md-8" >
+  <center><h4 class="alert-heading"> {{ message }}</h4></center>
+</div>
+<br>
+{% endfor %} 
+
+
+
+        <div class="justify-content-center row">
+            <div class="col-md-8">
+                <div class="card-group ">
+                    <div class="text-white py-5 d-md-down-none card cardSubmitEmailCustomer" style="background-color: rgba(0, 0, 245, 0.5)">
+                        <div class="text-center card-body" id="listCustomerTickets">
+                            <div class="col-12 contentUserGain" id="blockUserGain">
+                                <h2 class="text-white">Indiquez l'email du client pour voir ses gains :</h2>
+                                <p id="result"></p>
+                                <form method="POST" action="/employe/checkuser/checkcode">
+                                <div class="input-group">
+                                <div class="col-6">
+                                <input name="mail" type="email" placeholder="Email" class="form-control">
+                                </div>
+                                <div class="col-4">
+                                <input type="submit"  value="valider" class="btn btn-success btn-block">
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+ {% if wins %} 
+                <table class="table mt-4" style="background-color: rgba(244, 217, 231, 0.8)" >
+        <thead>
+            <tr>
+                <th>Type de gain</th>
+                <th>L'état de gain</th>
+               <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for win in wins %}
+            <tr>
+                <td>{{win.ticket.title}}</td>
+                <td>{% if win.send == 0 %}<span class="badge bg-warning">Gains pas encore distribué</span> {% else %}<span class="badge bg-info">Gains est déja distribué</span>{% endif %}</td>
+                <td>{% if win.send == 0 %}
+                <form method="POST" action="{{path('app_code_send')}}">
+                <input type="hidden" value="{{win.id }}" name="gain_id">
+                <button type="submit" class="btn btn-success btn-l">Donner le gaint</button>
+                </form>
+                {% endif %}
+                
+                
+                </td>
+    
+            </tr>
+            
+        {% endfor %}
+        </tbody>
+    </table>
+ {% endif %} 
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

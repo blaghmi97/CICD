@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        {# POUR SE LOG AVEC GOOGLE #}
+        {# A  DECOMMENTER POUR FAIRE APPARAITRE LE SINGIN #}
+        {# <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js" async defer></script> #}
+
+        <title>{% block title %}Thé TipTop | Jeu Concours{% endblock %}</title>
+
+        <meta charset="UTF-8" />
+        <title> AtypikHouse | Votre plateforme pour résérver votre habitat partout en europe </title>
+        <meta name="description" content="Jeu concours The TipTop."/>
+        <meta name="keywords" content="TipTop ,Thé, jeu concours"/>
+        <meta name="ROBOTS" content="INDEX, FOLLOW">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="The TipTop">
+
+
+
+
+        <link rel="icon" href="{{ asset('uploads/images/the-logo.png') }}">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link rel="stylesheet" href="{{ asset('bootstrap.css') }}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}">
+        {% block stylesheets %}
+                
+       
+        {% endblock %}
+
+        {% block javascripts %}
+        
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        
+    </body>
+</html>

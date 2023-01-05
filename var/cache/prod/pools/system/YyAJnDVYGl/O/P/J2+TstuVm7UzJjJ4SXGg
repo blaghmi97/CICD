@@ -1,0 +1,48 @@
+<?php //ece69dd6a4cd1d3f70d0338efba1abf1
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Query\\ParserResult'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ParserResult')),
+        clone ($p['Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor')),
+        clone ($p['Doctrine\\ORM\\Query\\ResultSetMapping'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ResultSetMapping')),
+    ],
+    null,
+    [
+        'Doctrine\\ORM\\Query\\ParserResult' => [
+            '_sqlExecutor' => [
+                $o[1],
+            ],
+            '_resultSetMapping' => [
+                $o[2],
+            ],
+            '_parameterMappings' => [
+                [
+                    'val' => [
+                        0,
+                    ],
+                ],
+            ],
+        ],
+        'Doctrine\\ORM\\Query\\Exec\\AbstractSqlExecutor' => [
+            '_sqlStatements' => [
+                1 => 'SELECT u0_.city AS city_0, count(u0_.city) AS sclr_1 FROM user u0_ WHERE u0_.city <> ? GROUP BY u0_.city ORDER BY sclr_1 ASC LIMIT 5',
+            ],
+        ],
+        'stdClass' => [
+            'scalarMappings' => [
+                2 => [
+                    'city_0' => 'city',
+                    'sclr_1' => 'count',
+                ],
+            ],
+            'typeMappings' => [
+                2 => [
+                    'city_0' => 'string',
+                    'sclr_1' => 'integer',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

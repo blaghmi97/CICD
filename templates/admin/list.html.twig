@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Users{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('v.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+ <h1> Liste des users :</h1><br>
+{% for user in users %}
+{% if user.roles == ["ROLE_USER"] %}
+ <h4> {{ user.email }} </h4>
+
+{% endif %}
+
+{% endfor %}
+
+
+{% endblock %}
