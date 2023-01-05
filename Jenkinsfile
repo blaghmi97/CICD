@@ -24,7 +24,7 @@ pipeline {
                sh 'cd /var/jenkins_home/workspace/CICDWORKFLOW/docker && docker compose up -d --build' 
             }
         }
-    stage('Test') {
+    stage('Testing') {
             steps {
                sh 'cd /var/jenkins_home/workspace/CICDWORKFLOW && ./vendor/bin/phpunit UnitTestFiles/Test'
             }
