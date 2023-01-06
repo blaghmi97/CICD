@@ -50,5 +50,3 @@ USER www-data
 RUN rm -rf /var/cache/apk/*
 
 CMD ["php-fpm", "--nodaemonize"]
-
-#CMD  "php bin/console doctrine:schema:update --force --complete --dump-sql" && /bin/bash
