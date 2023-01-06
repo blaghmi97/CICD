@@ -26,7 +26,7 @@ pipeline {
         }
     stage('Testing') {
             steps {
-               sh 'cd /var/jenkins_home/workspace/CICDWORKFLOW && ./vendor/bin/phpunit UnitTestFiles/Test'
+               sh 'cd /var/jenkins_home/workspace/CICDWORKFLOW && phpunit --log-junit result.xml UnitTestFiles/Test/FirstTest.php'
             }
         }
 
